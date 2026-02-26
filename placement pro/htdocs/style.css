@@ -1,0 +1,25 @@
+:root { --p: #4f46e5; --bg: #0f172a; --card: #1e293b; --text: #f8fafc; }
+body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); margin: 0; }
+.hidden { display: none; }
+.container { width: 90%; max-width: 900px; margin: auto; }
+
+/* Navigation */
+nav { display: flex; justify-content: space-between; padding: 20px 0; border-bottom: 1px solid #334155; }
+.logo { font-size: 1.5rem; letter-spacing: 1px; }
+.menu span { margin-left: 20px; cursor: pointer; opacity: 0.8; transition: 0.3s; }
+.menu span:hover { opacity: 1; color: var(--p); }
+
+/* Cards */
+.card { background: var(--card); padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.4); margin-top: 50px; }
+.hero-card { background: linear-gradient(135deg, #1e293b 0%, #312e81 100%); padding: 60px; border-radius: 20px; margin-top: 40px; text-align: center; }
+
+/* Inputs & Buttons */
+input[type="text"], input[type="password"] { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white; box-sizing: border-box; }
+.btn { background: var(--p); color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1rem; margin-top: 10px; }
+.btn-outline { background: transparent; border: 2px solid var(--p); color: white; padding: 13px 30px; border-radius: 8px; cursor: pointer; margin-left: 10px; }
+
+/* Voting List */
+.candidate-list { text-align: left; margin: 30px 0; }
+.radio-option { display: block; padding: 15px; background: #334155; margin-bottom: 10px; border-radius: 10px; cursor: pointer; }
+.back-link { background: none; border: none; color: #94a3b8; cursor: pointer; margin-top: 20px; }
+.logout { color: #fb7185 !important; }
