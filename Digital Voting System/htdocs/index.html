@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CloudVote | Secure Digital System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="login-page" class="auth-container">
+        <div class="card">
+            <div class="icon">🗳️</div>
+            <h2>Voter Login</h2>
+            <p>Enter your credentials to access the ballot.</p>
+            <input type="text" id="voterID" placeholder="Voter ID (e.g. 12345)">
+            <input type="password" placeholder="Passcode">
+            <button class="btn" onclick="showPage('home-page')">Sign In</button>
+        </div>
+    </div>
+
+    <div id="home-page" class="container hidden">
+        <nav>
+            <div class="logo">Cloud<b>Vote</b></div>
+            <div class="menu">
+                <span onclick="showPage('home-page')">Home</span>
+                <span onclick="showPage('vote-page')">Vote</span>
+                <span class="logout" onclick="location.reload()">Logout</span>
+            </div>
+        </nav>
+        
+        <div class="hero-card">
+            <h1>Welcome back, Citizen</h1>
+            <p>Your identity is verified. You are eligible to vote in the 2026 General Election.</p>
+            <div class="actions">
+                <button class="btn" onclick="showPage('vote-page')">Go to Voting Booth</button>
+                <form action="/cgi-bin/results.cgi" method="GET" style="display:inline;">
+                    <button type="submit" class="btn-outline">View Live Results</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="vote-page" class="container hidden">
+        <div class="card vote-card">
+            <h2>Cast Your Digital Ballot</h2>
+            <p>Select your preferred candidate carefully. This action cannot be undone.</p>
+            <form action="/cgi-bin/vote.cgi" method="GET">
+                <div class="candidate-list">
+                    <label class="radio-option">
+                        <input type="radio" name="candidate" value="Alice_Johnson" required>
+                        <span>Alice Johnson (Progressive Party)</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="candidate" value="Bob_Smith">
+                        <span>Bob Smith (Unity Party)</span>
+                    </label>
+                </div>
+                <button type="submit" class="btn">Submit Secure Vote</button>
+            </form>
+            <button onclick="showPage('home-page')" class="back-link">Return to Dashboard</button>
+        </div>
+    </div>
+
+    <script>
+        function showPage(id) {
+            document.getElementById('login-page').classList.add('hidden');
+            document.getElementById('home-page').classList.add('hidden');
+            document.getElementById('vote-page').classList.add('hidden');
+            document.getElementById(id).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
